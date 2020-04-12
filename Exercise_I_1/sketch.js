@@ -14,8 +14,8 @@ class Walker {
   }
 
   step() {
-    const xstep = random(-1,1);
-    const ystep = random(-1,1);
+    const xstep = constrain(floor(random(4)) - 1,-1,1);
+    const ystep = constrain(floor(random(4)) - 1,-1,1);
     this.x += xstep;
     this.y += ystep;
   }
