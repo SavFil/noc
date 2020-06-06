@@ -1,5 +1,6 @@
 let position;
 let velocity;
+let r = 10;
 
 function setup() {
     createCanvas(640, 640, WEBGL);
@@ -14,21 +15,26 @@ function setup() {
 
     position.add(velocity);
 
-    if((position.x>width/2)||(position.x<-width/2)){
-        velocity.x = velocity.x * -1;
-    }
-    if((position.y > height/2 ) || (position.y<-height/2)){
-        velocity.y = velocity.y * -1;
-    }
-    if((position.z > height/2 ) || (position.z<-height/2)){
-        velocity.z = velocity.z * -1;
-    }
+     if((position.x+r>100)||(position.x-r<-100)){
+         velocity.x = velocity.x * -1;
+     }
+     if((position.y+r > 100 ) || (position.y-r<-100)){
+         velocity.y = velocity.y * -1;
+     }
+     if((position.z+r > 100 ) || (position.z-r<-100)){
+         velocity.z = velocity.z * -1;
+     }
+   
     
-    console.log(position.x);
+    
+    
     push();
-    translate(position.x,position.y,position.z);
-    stroke(0);
-    
-    sphere(50);
+        rotateX(PI/3);
+        rotateY(PI/3);
+        noFill();
+        box(200);
+        translate(position.x,position.y,position.z);
+        stroke(0);
+        sphere(r);
     pop();
   }
